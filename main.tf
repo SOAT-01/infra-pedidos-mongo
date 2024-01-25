@@ -25,7 +25,7 @@ resource "mongodbatlas_project_ip_access_list" "ip" {
 # Create an Atlas Advanced Cluster 
 resource "mongodbatlas_advanced_cluster" "atlas-cluster" {
   project_id = mongodbatlas_project.atlas-project.id
-  name = "${var.atlas_project_name}-cluster"
+  name = "pedidos-cluster"
   cluster_type = "REPLICASET"
 
   replication_specs {

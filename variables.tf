@@ -8,7 +8,7 @@ variable "atlas_org_id" {
 variable "atlas_project_name" {
   type        = string
   description = "Atlas Project Name"
-  default = "tech-challenge"
+  default = "tech-challenge-pedidos"
 }
 
 # Cluster Instance Size Name 

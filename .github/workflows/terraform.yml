@@ -102,6 +102,16 @@ jobs:
           TF_VAR_database_name: ${{ secrets.TF_VAR_DATABASE_NAME }}
           TF_VAR_db_user: ${{ secrets.TF_VAR_DB_USER }}
           TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }}
+            
+      - name: Terraform Apply (Event)
+        if: ${{ github.event.inputs.action == 'terraform' }}
+        run: terraform apply -auto-approve -input=false
+        env:
+          TF_VAR_db_user: ${{ secrets.DB_USER }}
+          TF_VAR_db_password: ${{ secrets.DB_PWD }}
+          TF_VAR_db_port: ${{ secrets.DB_PORT }}
+          TF_VAR_db_name: ${{ secrets.DB_NAME }}
+          TF_VAR_region: ${{ secrets.AWS_REGION }}
   
   terraform_destroy:
     name: "Terraform Destroy"
